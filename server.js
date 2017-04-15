@@ -72,6 +72,9 @@ var fullStock = function (stockName, callback) {
     });
 };
 
+// API Key to access API
+const apiKey = process.env.INFI_SES_API_KEY;
+
 // HTTP Web Server
 
 // callback function to handle HTTP requests and pass responses
@@ -87,6 +90,13 @@ var handleReq = function (req, res) {
     for(var i in query) {
         var parts = query[i].split("=");
         args[querystring.unescape(parts[0])] = querystring.unescape(parts[1]);
+    }
+
+    // test if the API key doesn't match prematurely terminates with 401
+    if(args[key] == undefined || args[key] != apiKey) {
+        res.writeHead(401, {"Content-Type": "text/plain"});
+        res.end("401, Unathorised. You do not have permissions to access the API.");
+        return;
     }
 
     // callback function that sends the queried data result as a json HTTP response
