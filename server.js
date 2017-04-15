@@ -10,7 +10,8 @@ var url = require('url');
 // define constants for credentials to access database
 const dbHost = process.env.OPENSHIFT_MYSQL_DB_HOST;
 const dbUser = process.env.OPENSHIFT_MYSQL_DB_USERNAME;
-const dbPassword = process.env.OPENSHIFT_MYSQL_DB_PASSWORD;;
+const dbPassword = process.env.OPENSHIFT_MYSQL_DB_PASSWORD;
+const dbPort = process.env.OPENSHIFT_MYSQL_DB_PORT;
 const dbName = "infisesapitest";
 
 // create connections to mysql server and required database
@@ -99,6 +100,8 @@ var handleReq = function (req, res) {
 
         // current date and time
         var date = new Date();
+        // adjusts the date object to use UTC + 5:30 IST instead of system time zone provided time
+        date = new Date(date.getTime() + (date.getTimezoneOffset() * 60 * 1000) - (-330 * 60 * 1000));
         var day = date.getDate(); var month = date.getMonth() + 1; var year = date.getFullYear(); var hours = date.getHours(); var minutes = date.getMinutes(); var seconds = date.getSeconds();
         // adjust the 0 for date string
         day = (day < 10) ? "0" + day : "" + day; month = (month < 10) ? "0" + month : "" + month; hours = (hours < 10) ? "0" + hours : "" + hours; minutes = (minutes < 10) ? "0" + minutes : "" + minutes; seconds = (seconds < 10) ? "0" + seconds : "" + seconds; 
@@ -109,6 +112,7 @@ var handleReq = function (req, res) {
             time: dateStr,
             result: rows
         };
+
         // pass the required HTTP response as a JSON
         res.writeHead(200, {"Content-Type": "application/json"});
         res.end(JSON.stringify(data));
