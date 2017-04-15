@@ -83,8 +83,8 @@ var handleReq = function (req, res) {
     var query = queryStr.split("&");
     // store all GET parameters and arguments as an array
     var args = [];
-    for(var str of query) {
-        var parts = str.split("=");
+    for(var i in query) {
+        var parts = query[i].split("=");
         args[querystring.unescape(parts[0])] = querystring.unescape(parts[1]);
     }
 
