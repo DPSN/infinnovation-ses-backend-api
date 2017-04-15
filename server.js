@@ -1,5 +1,5 @@
 #!/bin/env node
-// Node.js Application to run a backen API
+// Node.js Application to run a backend API
 
 // import the required modules
 var http = require('http');
@@ -93,7 +93,7 @@ var handleReq = function (req, res) {
     }
 
     // test if the API key doesn't match prematurely terminates with 401
-    if(args[key] == undefined || args[key] != apiKey) {
+    if(args['key'] == undefined || args['key'] != apiKey) {
         res.writeHead(401, {"Content-Type": "text/plain"});
         res.end("401, Unathorised. You do not have permissions to access the API.");
         return;
