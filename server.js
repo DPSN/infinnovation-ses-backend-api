@@ -30,10 +30,10 @@ var stocksList = function(profileFlag, callback) {
     // defines the name of the sql table
     const tableName = "stocks";
     // sql query
-    var sql = "SELECT name, current, difference, percentage, sector FROM " + tableName + ";";
+    var sql = "SELECT name, current, difference, percentage, sector FROM " + tableName + " ORDER BY sector, name;";
     // if profile of the current stock is required
     if(profileFlag) {
-        sql = "SELECT name, current, difference, percentage, sector, profile FROM " + tableName + ";";
+        sql = "SELECT name, current, difference, percentage, sector, profile FROM " + tableName + " ORDER BY sector, name;";
     }
     conn.query(sql, function(err, rows) {
         if(err) throw err;
@@ -49,7 +49,7 @@ var headlinesList = function (callback) {
     // defines the name of the sql table
     const tableName = "news";
     // sql query
-    var sql = "SELECT time, content FROM " + tableName + ";";
+    var sql = "SELECT time, content FROM " + tableName + " ORDER BY time DESC;";
     conn.query(sql, function(err, rows) {
         if(err) throw err;
         // pass the rows obtained from the database to the callback function      
