@@ -33,7 +33,7 @@ var stocksList = function(profileFlag, callback) {
     var sql = "SELECT name, current, difference, percentage, sector FROM " + tableName + " ORDER BY sector, name;";
     // if profile of the current stock is required
     if(profileFlag) {
-        sql = "SELECT name, current, difference, percentage, sector, profile FROM " + tableName + " ORDER BY sector, name;";
+        sql = "SELECT name, current, difference, percentage, sector, profile FROM " + tableName + " ORDER BY name;";
     }
     conn.query(sql, function(err, rows) {
         if(err) throw err;
