@@ -8,11 +8,11 @@ var querystring = require('querystring');
 var url = require('url');
 
 // define constants for credentials to access database
-const dbHost = process.env.OPENSHIFT_MYSQL_DB_HOST;
-const dbUser = process.env.OPENSHIFT_MYSQL_DB_USERNAME;
-const dbPassword = process.env.OPENSHIFT_MYSQL_DB_PASSWORD;
-const dbPort = process.env.OPENSHIFT_MYSQL_DB_PORT;
-const dbName = "infisesapitest";
+const dbHost = process.env.AWS_RDS_INSTANCE_MYSQL_DB_HOST;
+const dbUser = process.env.AWS_RDS_INSTANCE_MYSQL_DB_USERNAME;
+const dbPassword = process.env.AWS_RDS_INSTANCE_MYSQL_DB_PASSWORD;
+const dbPort = process.env.AWS_RDS_INSTANCE_MYSQL_DB_PORT;
+const dbName = "infinnovationses";
 
 // create connections to mysql server and required database
 var dbConfig = {
