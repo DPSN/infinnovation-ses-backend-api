@@ -19,6 +19,7 @@ var dbConfig = {
     host: dbHost,
     user: dbUser,
     password: dbPassword,
+    port: dbPort,
     database: dbName
 };
 var conn = mysql.createConnection(dbConfig);
@@ -69,6 +70,22 @@ var fullStock = function (stockName, callback) {
         if(err) throw err;
         // pass the rows obtained from the database to the callback function      
         callback(rows[0]);
+    });
+};
+
+// API Part 4 : Stock Updates List
+
+// function to return a json that stores a list of updates defining time, current
+
+var updatesList = function(stockName, callback) {
+    // defines the name of the sql table
+    const tableName = "updates";
+    // sql query
+    var sql = "SELECT time, current FROM " + tableName + " WHERE name='" + stockName + "';";
+    conn.query(sql, function(err, rows) {
+        if(err) throw err;
+        // pass the rows obtained to the callback function
+        callback(rows);
     });
 };
 
@@ -142,6 +159,11 @@ var handleReq = function (req, res) {
         // call the appropriate API function to make the database query and invoke the callback function
         var stockName = args['name'];
         fullStock(stockName, cb);
+    }
+    else if (uri == '/api/updateslist') {
+        // call the appropriate API function to make the database query and invoke the callback function
+        var stockName = args['name'];
+        updatesList(stockName, cb);
     }
     else if(uri == '/health') {
         res.writeHead(200);
