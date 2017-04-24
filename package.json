@@ -1,29 +1,17 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "InfiSES-Backend-API",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
-  "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
-  ],
+  "description": "Infinnovation Stock Exchange Simulator Application Backend API",
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url": "http://www.openshift.com/"
-  },
-  "homepage": "http://www.openshift.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/openshift/origin-server"
+    "name": "SwG Ghosh",
+    "email": "contact@swghosh.cu.cc",
+    "url": "https://stockexchangesimulator.infinnovation.co"
   },
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
   },
   "dependencies": {
-    "express": "~3.4.4",
     "mysql": "^2.13.0"
   },
   "devDependencies": {},
