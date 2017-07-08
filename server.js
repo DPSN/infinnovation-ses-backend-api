@@ -81,7 +81,7 @@ var updatesList = function(stockName, callback) {
     // defines the name of the sql table
     const tableName = "updates";
     // sql query
-    var sql = "SELECT * FROM (SELECT time, current FROM " + tableName +" WHERE name='" + stockName +"' ORDER BY id DESC LIMIT 0, 30) AS aliasForLatest ORDER BY id ASC;";
+    var sql = "SELECT * FROM (SELECT id, time, current FROM " + tableName +" WHERE name='" + stockName +"' ORDER BY id DESC LIMIT 0, 30) AS aliasForLatest ORDER BY id ASC;";
     conn.query(sql, function(err, rows) {
         if(err) throw err;
         // pass the rows obtained to the callback function
