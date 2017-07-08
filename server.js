@@ -50,7 +50,7 @@ var headlinesList = function (callback) {
     // defines the name of the sql table
     const tableName = "news";
     // sql query
-    var sql = "SELECT time, content FROM " + tableName + " ORDER BY time DESC;";
+    var sql = "SELECT time, content FROM " + tableName + " ORDER BY id DESC;";
     conn.query(sql, function(err, rows) {
         if(err) throw err;
         // pass the rows obtained from the database to the callback function      
@@ -81,7 +81,7 @@ var updatesList = function(stockName, callback) {
     // defines the name of the sql table
     const tableName = "updates";
     // sql query
-    var sql = "SELECT * FROM (SELECT time, current FROM " + tableName +" WHERE name='" + stockName +"' ORDER BY time DESC LIMIT 0, 30) AS aliasForLatest ORDER BY time ASC;";
+    var sql = "SELECT * FROM (SELECT time, current FROM " + tableName +" WHERE name='" + stockName +"' ORDER BY id DESC LIMIT 0, 30) AS aliasForLatest ORDER BY id ASC;";
     conn.query(sql, function(err, rows) {
         if(err) throw err;
         // pass the rows obtained to the callback function
