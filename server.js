@@ -148,20 +148,20 @@ var handleReq = function (req, res) {
     if(uri == '/api/stockslist') {
         // specify whether profile is required or not
         var profileFlag = (args['profile'] != undefined);
-        // call the appropriate API function to make the database query and invoke the callback function
+        // call the appropriate API function to make the database query and invoke the callback function for part 1
         stocksList(profileFlag, cb);
     }
     else if(uri == '/api/headlineslist') {
-        // call the appropriate API function to make the database query and invoke the callback function
+        // call the appropriate API function to make the database query and invoke the callback function for part 2
         headlinesList(cb);
     }
     else if(uri == '/api/fullstock') {
-        // call the appropriate API function to make the database query and invoke the callback function
+        // call the appropriate API function to make the database query and invoke the callback function for part 3
         var stockName = args['name'];
         fullStock(stockName, cb);
     }
     else if (uri == '/api/updateslist') {
-        // call the appropriate API function to make the database query and invoke the callback function
+        // call the appropriate API function to make the database query and invoke the callback function for part 4
         var stockName = args['name'];
         updatesList(stockName, cb);
     }
