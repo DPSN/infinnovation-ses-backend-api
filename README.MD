@@ -1,4 +1,4 @@
-![RESTful API Server](https://s4.postimg.org/o5ytba7j1/rest-api.jpg)
+![RESTful API Server](https://swghosh.github.io/images/infisesbackendapi.jpeg)
 # Infinnovation Stock Exchange Simulator Backend API
 
 https://sesapi.infinnovation.co/
