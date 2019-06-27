@@ -183,4 +183,4 @@ const port = process.env.PORT || 8080;
 
 // start the web server
 server.listen(port);
-console.log("Web server started on http://", host, ":", port);
+console.log("Web server started on ", port);
