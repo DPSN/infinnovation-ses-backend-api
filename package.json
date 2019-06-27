@@ -1,15 +1,11 @@
 {
-  "name": "InfiSES-Backend-API",
+  "name": "infises-backend-api",
   "version": "1.0.0",
   "description": "Infinnovation Stock Exchange Simulator Application Backend API",
   "author": {
     "name": "SwG Ghosh",
-    "email": "contact@swghosh.cu.cc",
+    "email": "codecrafts.cf@icloud.com",
     "url": "https://stockexchangesimulator.infinnovation.co"
-  },
-  "engines": {
-    "node": ">= 0.6.0",
-    "npm": ">= 1.0.0"
   },
   "dependencies": {
     "mysql": "^2.13.0"

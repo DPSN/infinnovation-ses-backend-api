@@ -8,11 +8,11 @@ var querystring = require('querystring');
 var url = require('url');
 
 // define constants for credentials to access database
-const dbHost = process.env.OTHER_OPENSHIFT_APP_MYSQL_DB_HOST;
-const dbUser = process.env.OTHER_OPENSHIFT_APP_MYSQL_DB_USERNAME;
-const dbPassword = process.env.OTHER_OPENSHIFT_APP_MYSQL_DB_PASSWORD;
-const dbPort = process.env.OTHER_OPENSHIFT_APP_MYSQL_DB_PORT;
-const dbName = "infinnovationsesdb";
+const dbHost = process.env.MYSQL_DB_HOST;
+const dbUser = process.env.MYSQL_DB_USERNAME;
+const dbPassword = process.env.MYSQL_DB_PASSWORD;
+const dbPort = process.env.MYSQL_DB_PORT;
+const dbName = "infinnovationses";
 
 // create connections to mysql server and required database
 var dbConfig = {
@@ -179,9 +179,8 @@ var handleReq = function (req, res) {
 var server = http.createServer(handleReq);
 
 // define the HTTP web server port
-const port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-const host = process.env.OPENSHIFT_NODEJS_IP;
+const port = process.env.PORT || 8080;
 
 // start the web server
-server.listen(port, host);
+server.listen(port);
 console.log("Web server started on http://", host, ":", port);
